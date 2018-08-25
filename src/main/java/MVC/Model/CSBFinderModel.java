@@ -1,5 +1,8 @@
 package MVC.Model;
 
+import IO.MyLogger;
+import IO.Readers;
+import IO.Writer;
 import MVC.Common.*;
 import Main.*;
 import PostProcess.Family;
@@ -8,9 +11,13 @@ import SuffixTrees.*;
 import Utils.Utils;
 import Utils.Gene;
 import Utils.COG;
+import Utils.Pattern;
+import Utils.Instance;
+import Utils.InstanceLocation;
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.ParameterException;
 
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class CSBFinderModel {
@@ -22,23 +29,26 @@ public class CSBFinderModel {
     private Utils utils;
     private Writer writer;
     private GeneralizedSuffixTree dataset_suffix_tree;
-    private ArrayList<Family> families;
+    private List<Family> families;
 
-    private int number_of_genomes = -1;
+    private int number_of_genomes;
 
     public CSBFinderModel() {
-        this.init();
+
     }
 
+    public MyLogger logger = new MyLogger(createOutputPath(), true);
     public void init() {
-        this.utils = new Utils(null, null);
+        this.utils = new Utils(null, logger);
     }
 
     public void loadFile(String path, boolean is_directons) {
+        this.init();
         dataset_suffix_tree = new GeneralizedSuffixTree();
         number_of_genomes = utils.readAndBuildDatasetTree(path,
-                dataset_suffix_tree, cla.is_directons);
-        genomesLoadedListener.genomesLoadDone(new GenomesLoadEvent(utils.getGenomeToGeneListMap()));
+                dataset_suffix_tree, cla.non_directons);
+//        number_of_genomes= utils.getGenomeToGeneListMap().size();
+//        genomesLoadedListener.genomesLoadDone(new GenomesLoadEvent(utils.getGenomeToGeneListMap()));
 
     }
 
@@ -64,13 +74,13 @@ public class CSBFinderModel {
     private void findCSBs() {
         long startTime = System.nanoTime();
 
-        HashMap<String, COG> cog_info = null;
+        Map<String, COG> cog_info = null;
         boolean cog_info_exists = (cla.cog_info_file_name != null);
         if (cog_info_exists) {
             cog_info = Readers.read_cog_info_table(cla.cog_info_file_name);
         }
 
-        utils.setCog_info(cog_info);
+        utils.setCogInfo(cog_info);
 
         Trie pattern_tree = buildPatternsTree(utils);
 
@@ -79,23 +89,23 @@ public class CSBFinderModel {
         CSBFinder csbFinder = new CSBFinder(cla.max_error, cla.max_wildcards, cla.max_deletion, cla.max_insertion,
                 cla.quorum1, cla.quorum2,
                 cla.min_pattern_length, cla.max_pattern_length, utils.GAP_CHAR_INDEX, utils.WC_CHAR_INDEX,
-                dataset_suffix_tree, pattern_tree, cla.bool_count, utils, cla.memory_saving_mode, writer,
-                cla.is_directons, cla.debug);
+                dataset_suffix_tree, pattern_tree, cla.mult_count, utils, cla.memory_saving_mode, writer,
+                cla.non_directons, cla.debug);
 
         if (cla.input_patterns_file_name == null) {
             csbFinder.removeRedundantPatterns();
         }
 
-        ArrayList<Pattern> patterns = csbFinder.getPatterns();
+        List<Pattern> patterns = csbFinder.getPatterns();
 
         for (Pattern pattern : patterns) {
             pattern.calculateScore(utils, cla.max_insertion, cla.max_error, cla.max_deletion);
-            pattern.calculateMainFunctionalCategory(utils, cla.is_directons);
+            pattern.calculateMainFunctionalCategory(utils, cla.non_directons);
         }
 
         System.out.println("Clustering to families");
         families = FamilyClustering.Cluster(patterns, cla.threshold, cla.cluster_by, utils,
-                cla.is_directons);
+                cla.non_directons);
 
         long patternCount = 0;
         for (Family family : families) {
@@ -119,13 +129,25 @@ public class CSBFinderModel {
 
         Writer writer = new Writer(cla.max_error, cla.max_deletion, cla.max_insertion, cla.debug, catalog_file_name,
                 instances_file_name,
-                include_families, cla.output_file_type, cog_info_exists, cla.is_directons);
+                include_families, cla.output_file_type, cog_info_exists, cla.non_directons, createOutputPath());
 
         return writer;
     }
 
+    private static String createOutputPath(){
+        Date dNow = new Date( );
+        SimpleDateFormat ft = new SimpleDateFormat ("dd_MM_yyyy_hh_mm_ss_a");
+
+        String path = "output";
+        Writer.createOutputDirectory(path);
+        path += "/"+ft.format(dNow)+"/";
+        Writer.createOutputDirectory(path);
+
+        return path;
+    }
+
     public void saveOutputFiles(String outputFileType) {
-        writer.setOutput_file_type(CommandLineArgs.OutputType.valueOf(outputFileType));
+        writer.setOutputFileType(CommandLineArgs.OutputType.valueOf(outputFileType));
         System.out.println("Writing to files");
         for (Family family : families) {
             writer.printFilteredCSB(family.getPatterns().get(0), utils, family.getFamilyId());
@@ -170,9 +192,9 @@ public class CSBFinderModel {
 
     public Map<String, String> getCogInfo(List<String> cogs) {
         Map<String, String> cogInfo = new HashMap<>();
-        if (utils.getCog_info() != null) {
+        if (utils.getCogInfo() != null) {
             cogs.forEach(cog -> {
-                COG c = utils.getCog_info().get(cog);
+                COG c = utils.getCogInfo().get(cog);
                 if (c != null) {
                     cogInfo.put(cog, c.getCog_desc());
                 }
@@ -182,61 +204,83 @@ public class CSBFinderModel {
         return cogInfo;
     }
 
-    public Map<String, List<List<Gene>>> getInstances(Pattern pattern) {
-        HashMap<String, List<List<Gene>>> instance_seq_and_location = new HashMap<>();
-        for (Instance instance : pattern.get_instances()) {
+     public Map<String, List<List<Gene>>> getInstances(Pattern pattern){
 
-            InstanceNode instance_node = instance.getNodeInstance();
-            if (instance.getEdge() != null) {
-                Edge edge = instance.getEdge();
-                instance_node = (InstanceNode) edge.getDest();
+        Map<String, List<List<Gene>>> instances = new HashMap<>();
+
+        for (Map.Entry<Integer, List<InstanceLocation>> entry : groupSameSeqInstances(pattern).entrySet()) {
+
+            String seq_name = utils.genome_key_to_name.get(entry.getKey());
+
+            List<List<Gene>> genomeInstances = new ArrayList<>();
+
+            List<InstanceLocation> instances_locations = entry.getValue();
+            for (InstanceLocation instance_location : instances_locations){
+//                String replicon_name = utils.replicon_key_to_name.get(instance_location.getRepliconId());
+                List<Gene> genes = getInstanceFromCogList(seq_name, instance_location.getStartIndex(), instance_location.getEndIndex());
+                if (genes != null) {
+                    genomeInstances.add(genes);
+                }
             }
 
-            for (Map.Entry<Integer, ArrayList<Integer[]>> entry : instance_node.getResults().entrySet()) {
-
-                String seq_name = utils.genome_key_to_name.get(entry.getKey());
-                if (!instance_seq_and_location.containsKey(seq_name)) {
-                    instance_seq_and_location.put(seq_name, new ArrayList<>());
-                }
-
-                List<List<Gene>> instances_info = instance_seq_and_location.get(seq_name);
-                for (Integer[] instance_info : entry.getValue()) {
-                    int startIndex = instance_info[1];
-                    int instanceLen = instance_info[2];
-
-                    // Check that indexes make sense and In range of the Genome cog list
-                    if (startIndex >= 0 && instanceLen > 0) {
-                        List<Gene> instanceList = new ArrayList<>();
-                        instanceList.addAll(getInstanceFromCogList(seq_name, startIndex, instanceLen));
-                        if (instanceList != null) {
-                            instances_info.add(instanceList);
-                        }
-                    } else {
-                        writer.writeLogger(String.format("WARNING: Instance in sequence %s indexes are out of range. " +
-                                "repliconKey: %s,start: %s, length: %s",
-                                seq_name, instance_info[0], instance_info[1], instance_info[2]));
-                    }
-                }
+            if (genomeInstances.size() > 0) {
+                instances.put(seq_name, genomeInstances);
             }
         }
 
-        return instance_seq_and_location;
+        return instances;
     }
 
-    private List<Gene> getInstanceFromCogList(String seq_name, int startIndex, int instanceLength) {
+    private List<Gene> getInstanceFromCogList(String seq_name, int startIndex, int endIndex) {
         List<Gene> instanceList = null;
         List<Gene> genomeToCogList = utils.getGenomeToGeneListMap().get(seq_name);
         if (genomeToCogList != null) {
-            if (startIndex < genomeToCogList.size() && genomeToCogList.size() > startIndex + instanceLength) {
-                instanceList = genomeToCogList.subList(startIndex, startIndex + instanceLength);
+            if (startIndex > 0 && startIndex < genomeToCogList.size() &&
+                    endIndex > 0 && endIndex < genomeToCogList.size()) {
+                if (startIndex >= endIndex) {
+                    int tmp = startIndex;
+                    startIndex = endIndex;
+                    endIndex = tmp;
+                }
+                instanceList = genomeToCogList.subList(startIndex, endIndex);
             } else {
-                writer.writeLogger(String.format("WARNING: replicon is out of bound in sequence %s, start: %s,length: %s",
-                        seq_name, startIndex, instanceLength));
+//                writer.writeLogger(String.format("WARNING: replicon is out of bound in sequence %s, start: %s,length: %s",
+//                        seq_name, startIndex, instanceLength));
             }
         } else {
-            writer.writeLogger(String.format("WARNING: Genome %s not found", seq_name));
+//            writer.writeLogger(String.format("WARNING: Genome %s not found", seq_name));
         }
 
         return instanceList;
+    }
+
+    /**
+     * Group all instances of pattern that are located in the same sequence
+     * @param pattern
+     * @return
+     */
+    private Map<Integer, List<InstanceLocation>> groupSameSeqInstances(Pattern pattern){
+        Map<Integer, List<InstanceLocation>> instance_seq_to_location = new HashMap<>();
+        for (Instance instance : pattern.get_instances()) {
+
+            int instance_length = instance.getLength();
+            for (Map.Entry<Integer, List<InstanceLocation>> entry : instance.getInstanceLocations().entrySet()) {
+                int seq_key = entry.getKey();
+
+                if (!instance_seq_to_location.containsKey(seq_key)) {
+                    instance_seq_to_location.put(seq_key, new ArrayList<InstanceLocation>());
+                }
+                List<InstanceLocation> instances_locations = instance_seq_to_location.get(seq_key);
+                for (InstanceLocation instance_location : entry.getValue()) {
+                    instance_location.setEndIndex(instance_length);
+                    instances_locations.add(instance_location);
+                }
+            }
+        }
+        return instance_seq_to_location;
+    }
+
+    public int getNumberOfGenomes() {
+        return number_of_genomes;
     }
 }

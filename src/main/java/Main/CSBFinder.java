@@ -1,6 +1,7 @@
 package Main;
 
-import Words.WordArray;
+import IO.Writer;
+import Utils.WordArray;
 import SuffixTrees.*;
 
 import java.util.*;
@@ -28,16 +29,16 @@ public class CSBFinder {
     private GeneralizedSuffixTree data_tree;
 
     //contains all extracted patterns
-    private HashMap<String, Pattern> patterns;
+    private Map<String, Pattern> patterns;
 
     private int gap_char;
     private int wildcard_char;
-    private boolean count_by_keys;
+    private boolean mult_count;
 
     private int last_pattern_key;
     private boolean memory_saving_mode;
 
-    private boolean isDirectons;
+    private boolean non_directons;
 
     private boolean debug;
 
@@ -59,7 +60,7 @@ public class CSBFinder {
      * @param wildcard_char
      * @param data_t GST representing all input sequences
      * @param pattern_trie
-     * @param count_by_keys if true, counts one instance in each input sequence
+     * @param mult_count if true, counts one instance in each input sequence
      * @param utils
      * @param memory_saving_mode
      * @param writer
@@ -67,8 +68,8 @@ public class CSBFinder {
      */
     public CSBFinder(int max_error, int max_wildcards, int max_deletion, int max_insertion, int quorum1, int quorum2,
                      int min_pattern_length, int max_pattern_length, int gap_char, int wildcard_char,
-                     GeneralizedSuffixTree data_t, Trie pattern_trie, boolean count_by_keys, Utils utils,
-                     boolean memory_saving_mode, Writer writer, boolean isDirectons,  boolean debug){
+                     GeneralizedSuffixTree data_t, Trie pattern_trie, boolean mult_count, Utils utils,
+                     boolean memory_saving_mode, Writer writer, boolean non_directons, boolean debug){
 
         patterns = new HashMap<>();
         this.max_error = max_error;
@@ -82,13 +83,13 @@ public class CSBFinder {
         this.max_pattern_length = max_pattern_length;
         this.gap_char = gap_char;
         this.wildcard_char = wildcard_char;
-        this.count_by_keys = count_by_keys;
+        this.mult_count = mult_count;
         total_chars_in_data = -1;
         this.utils = utils;
         last_pattern_key = 0;
         this.memory_saving_mode = memory_saving_mode;
         this.writer = writer;
-        this.isDirectons = isDirectons;
+        this.non_directons = non_directons;
         this.debug = debug;
 
         count_nodes_in_pattern_tree = 0;
@@ -173,7 +174,7 @@ public class CSBFinder {
             }
 
             //remove reverse compliments
-            if (!isDirectons){
+            if (non_directons){
                 String pattern_str = String.join(DELIMITER, pattern_arr) + DELIMITER;
                 String reversed_pattern_str = String.join(DELIMITER, pattern.getReversePatternArr()) + DELIMITER;
                 Pattern reversed_pattern = patterns.get(reversed_pattern_str);
@@ -245,9 +246,9 @@ public class CSBFinder {
             addWildcardEdge(pattern_node, true);
         }
 
-        ArrayList<Instance> instances = pattern_node.getInstances();
+        List<Instance> instances = pattern_node.getInstances();
 
-        HashMap<Integer, PatternNode> target_nodes = pattern_node.getTarget_nodes();
+        Map<Integer, PatternNode> target_nodes = pattern_node.getTarget_nodes();
 
         //the maximal number of different instances, of one of the extended patterns
         int max_num_of_diff_instances = -1;
@@ -309,12 +310,12 @@ public class CSBFinder {
                                        Edge data_edge,
                                        String pattern, int pattern_length, int wildcard_count) {
 
-        ArrayList<Instance> instances = pattern_node.getInstances();
+        List<Instance> instances = pattern_node.getInstances();
         //the maximal number of different instances, of one of the extended patterns
         int max_num_of_diff_instances = -1;
         int num_of_diff_instances = 0;
 
-        HashMap<Integer, Edge> data_node_edges = null;
+        Map<Integer, Edge> data_node_edges = null;
 
         WordArray data_edge_label;
         if (data_edge != null) {
@@ -389,7 +390,7 @@ public class CSBFinder {
     private void handlePattern(Pattern new_pattern, String extended_pattern){
         if (memory_saving_mode){
             new_pattern.calculateScore(utils, max_insertion, max_error, max_deletion);
-            new_pattern.calculateMainFunctionalCategory(utils, isDirectons);
+            new_pattern.calculateMainFunctionalCategory(utils, non_directons);
             writer.printPattern(new_pattern, utils);
         }else {
             patterns.put(extended_pattern, new_pattern);
@@ -412,7 +413,7 @@ public class CSBFinder {
 
     private int extendPattern(int alpha, int data_edge_index, InstanceNode data_node, Edge data_edge,
                               int wildcard_count, String pattern, PatternNode target_node,
-                              PatternNode pattern_node, ArrayList<Instance> Instances, int pattern_length) {
+                              PatternNode pattern_node, List<Instance> Instances, int pattern_length) {
 
         String extended_pattern = appendChar(pattern, alpha);
         PatternNode extended_pattern_node = target_node;
@@ -438,10 +439,10 @@ public class CSBFinder {
         extended_pattern_node.setExact_instance_count(exact_instances_count);
 
         int diff_instances_count;
-        if (count_by_keys){
-            diff_instances_count = extended_pattern_node.getInstanceKeysSize();
-        }else {
+        if (mult_count){
             diff_instances_count = extended_pattern_node.getInstanceIndexCount();
+        }else {
+            diff_instances_count = extended_pattern_node.getInstanceKeysSize();
         }
 
         if (exact_instances_count >= q1 && diff_instances_count >= q2 &&
@@ -525,7 +526,7 @@ public class CSBFinder {
         //The substring ends at the current node_instance, edge_index = -1
         if (edge_instance == null) {
             //Go over all the edges from node_instance, see if the instance can be extended
-            HashMap<Integer, Edge> instance_edges = node_instance.getEdges();
+            Map<Integer, Edge> instance_edges = node_instance.getEdges();
 
             //we can extend the instance using all outgoing edges, increment error if needed
             if (ch == wildcard_char) {
@@ -638,7 +639,7 @@ public class CSBFinder {
      * @param ch
      * @param patternNode
      */
-    private int addAllInstanceEdges(Boolean make_insertion, Instance instance, HashMap<Integer, Edge> instance_edges,
+    private int addAllInstanceEdges(Boolean make_insertion, Instance instance, Map<Integer, Edge> instance_edges,
                                     int deletions, int error, InstanceNode instance_node, int edge_index, int ch,
                                     PatternNode patternNode) {
         int curr_error = error;
@@ -713,7 +714,7 @@ public class CSBFinder {
     /**
      * @return
      */
-    public ArrayList<Pattern> getPatterns() {
+    public List<Pattern> getPatterns() {
         return new ArrayList<Pattern>(patterns.values());
     }
 

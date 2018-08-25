@@ -1,6 +1,6 @@
 package MVC.View;
 
-import Main.Pattern;
+import Utils.Pattern;
 import PostProcess.Family;
 
 import javax.swing.table.AbstractTableModel;

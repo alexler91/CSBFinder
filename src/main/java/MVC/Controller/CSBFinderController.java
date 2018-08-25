@@ -3,7 +3,7 @@ package MVC.Controller;
 import MVC.Common.*;
 import MVC.Model.CSBFinderModel;
 import MVC.View.MainFrame;
-import Main.Pattern;
+import Utils.Pattern;
 import Utils.Gene;
 
 import java.util.List;
@@ -18,12 +18,12 @@ public class CSBFinderController {
         this.model = new CSBFinderModel();
         this.view = new MainFrame(this);
 
-        this.model.setGenomesLoadedListener(new GenomesLoadedListener() {
-            @Override
-            public void genomesLoadDone(GenomesLoadEvent e) {
-//                view.displayGenomesTable(e.getGenomeToGeneListMap());
-            }
-        });
+//        this.model.setGenomesLoadedListener(new GenomesLoadedListener() {
+//            @Override
+//            public void genomesLoadDone(GenomesLoadEvent e) {
+//                view.displayInputPanel(model.getNumberOfGenomes());
+//            }
+//        });
 
         this.model.setCSBFinderDoneListener(new CSBFinderDoneListener() {
             @Override
@@ -48,6 +48,10 @@ public class CSBFinderController {
     }
 
     public Map<String, List<List<Gene>>> getInstances(Pattern pattern) { return model.getInstances(pattern); }
+
+    public int getGenomesLoaded() {
+        return model.getNumberOfGenomes();
+    }
 
 //    public static void main(String[] args) {
 //        CSBFinderController controller = new CSBFinderController();

@@ -95,7 +95,7 @@ public class InputPanel extends JPanel {
         request.setCsbPatternFilePath("optional".equals(patternPath) || "".equals(patternPath) ? null : patternFilePath.getText());
         String geneInfoPath = geneInfoFilePath.getText();
         request.setGeneInfoFilePath("optional".equals(geneInfoPath) || "".equals(geneInfoPath) ? null : geneInfoFilePath.getText());
-        request.setBcount(bcount.isSelected());
+        request.setMultCount(bcount.isSelected());
         request.setFamilyClusterThreshold(familyClusterThreshold.getValue() / 10.0f);
         request.setClusterType((String) clusterTypeField.getSelectedValue());
     }

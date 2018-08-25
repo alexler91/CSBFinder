@@ -13,7 +13,7 @@ public class CSBFinderRequest {
     private String datasetName = "dataset1";
     private String csbPatternFilePath = null;
     private String geneInfoFilePath = null;
-    private boolean bcount = true;
+    private boolean mult_count = true;
     private boolean isDirectons = false;
     private float familyClusterThreshold = 0.8f;
     private String clusterType = "score";
@@ -82,12 +82,12 @@ public class CSBFinderRequest {
         this.geneInfoFilePath = geneInfoFilePath;
     }
 
-    public boolean isBcount() {
-        return bcount;
+    public boolean isMultCount() {
+        return mult_count;
     }
 
-    public void setBcount(boolean bcount) {
-        this.bcount = bcount;
+    public void setMultCount(boolean multCount) {
+        this.mult_count= multCount;
     }
 
     public boolean isDirectons() {
@@ -136,8 +136,8 @@ public class CSBFinderRequest {
         argList.add("-lmax");
         argList.add(String.valueOf(maximumCSBLength));
 
-        argList.add("-bcount");
-        argList.add(String.valueOf(bcount));
+//        argList.add("-mult-count");
+//        argList.add(String.valueOf(mult_count));
 
         argList.add("-ds");
         argList.add(datasetName);
@@ -158,8 +158,8 @@ public class CSBFinderRequest {
         argList.add("-clust-by");
         argList.add(clusterType);
 
-        argList.add("-directon");
-        argList.add(String.valueOf(isDirectons));
+//        argList.add("-directon");
+//        argList.add(String.valueOf(isDirectons));
 
         return argList.toArray(new String[0]);
     }

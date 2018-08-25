@@ -2,7 +2,7 @@ package MVC.View;
 
 import MVC.View.Events.FamilyRowClickedEvent;
 import MVC.View.Listeners.FamilyRowClickedListener;
-import Main.Pattern;
+import Utils.Pattern;
 import PostProcess.Family;
 
 import javax.swing.*;

@@ -1,6 +1,6 @@
 package PostProcess;
 
-import Main.Pattern;
+import Utils.Pattern;
 import Utils.Utils;
 
 import java.util.*;
@@ -13,7 +13,7 @@ public class Family {
 
     private String family_id;
     //members of the family
-    private ArrayList<Pattern> patterns;
+    private List<Pattern> patterns;
     //contains the union of all characters of all family members
     private HashSet<Integer> char_set;
     /**
@@ -22,30 +22,33 @@ public class Family {
      */
     private double score;
     private Utils utils;
-    private boolean directons;
+    private boolean non_directons;
 
-    public Family(String family_id, Pattern first_pattern, Utils utils, boolean directons){
+    public Family() {
+        
+    }
+
+    public Family(String family_id, Pattern first_pattern, Utils utils, boolean non_directons){
         this.utils = utils;
         score = -1;
         this.family_id = family_id;
         patterns = new ArrayList<>();
         patterns.add(first_pattern);
         char_set = new HashSet<>();
-        this.directons = directons;
+        this.non_directons = non_directons;
         addCharsToCharsSet(first_pattern);
     }
 
     public Family(Family family) {
         patterns = new ArrayList<>(family.getPatterns());
         score = family.score;
-        directons = family.directons;
         utils = family.utils;
         family_id = family.family_id;
     }
 
     private void addCharsToCharsSet(Pattern pattern){
         addCharsToCharsSet(pattern.getPatternArr());
-        if (!directons){
+        if (non_directons){
             addCharsToCharsSet(pattern.getReversePatternArr());
         }
     }
@@ -83,20 +86,21 @@ public class Family {
         score = patterns.get(0).getScore();
     }
 
-    public ArrayList<Pattern> getPatterns(){
+    public List<Pattern> getPatterns(){
         return patterns;
     }
 
-    public void setPatterns(ArrayList<Pattern> patterns) {
-        this.patterns = patterns;
-    }
-
     public static class ScoreComparator implements Comparator<Family> {
+
         @Override
         public int compare(Family o1, Family o2) {
             if (o2.getScore() < o1.getScore()) return -1;
             if (o2.getScore() > o1.getScore()) return 1;
             return 0;
         }
+    }
+
+    public void setPatterns(List<Pattern> plist) {
+        this.patterns = plist;
     }
 }

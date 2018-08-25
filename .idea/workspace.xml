@@ -1,0 +1,1063 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="CSBFinder:jar" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="79028a45-7a81-45d6-b4d1-5e632851696e" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MVC/Common/CSBFinderRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MVC/Common/CSBFinderRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MVC/Controller/CSBFinderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MVC/Controller/CSBFinderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MVC/Model/CSBFinderModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MVC/Model/CSBFinderModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MVC/View/Events/FamilyRowClickedEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MVC/View/Events/FamilyRowClickedEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MVC/View/FamilyPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MVC/View/FamilyPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MVC/View/FamilyTableModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MVC/View/FamilyTableModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MVC/View/GenomePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MVC/View/GenomePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MVC/View/InputPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MVC/View/InputPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MVC/View/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MVC/View/MainFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main/CSBFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main/CSBFinder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main/CommandLineArgs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main/CommandLineArgs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main/Instance.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main/Pattern.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main/Readers.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main/Writer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PostProcess/Family.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PostProcess/Family.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PostProcess/FamilyClustering.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PostProcess/FamilyClustering.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SuffixTrees/Edge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SuffixTrees/Edge.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SuffixTrees/GeneralizedSuffixTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SuffixTrees/GeneralizedSuffixTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SuffixTrees/InstanceNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SuffixTrees/InstanceNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SuffixTrees/PatternNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SuffixTrees/PatternNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SuffixTrees/SuffixNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SuffixTrees/SuffixNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SuffixTrees/TreeType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SuffixTrees/TreeType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SuffixTrees/Trie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SuffixTrees/Trie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Utils/COG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Utils/COG.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Utils/Gene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Utils/Gene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Utils/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Utils/Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Words/Directon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MVC/Common/CSBFinderRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MVC/Common/CSBFinderRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MVC/Controller/CSBFinderController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MVC/Controller/CSBFinderController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MVC/Controller/CSBFinderController$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MVC/Controller/CSBFinderController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MVC/Controller/CSBFinderController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MVC/Model/CSBFinderModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MVC/Model/CSBFinderModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MVC/View/Events/FamilyRowClickedEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MVC/View/Events/FamilyRowClickedEvent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MVC/View/FamilyPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MVC/View/FamilyPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MVC/View/FamilyTableModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MVC/View/FamilyTableModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MVC/View/GenomePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MVC/View/GenomePanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MVC/View/InputPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MVC/View/InputPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MVC/View/MainFrame$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MVC/View/MainFrame$1$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MVC/View/MainFrame$1$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MVC/View/MainFrame$1$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main/CSBFinder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main/CSBFinder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main/CommandLineArgs.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main/CommandLineArgs.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main/Instance.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main/Pattern$LengthComparator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main/Pattern$ScoreComparator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main/Pattern.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main/Readers.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main/Writer.class" beforeDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExportToHTMLSettings">
+    <option name="OUTPUT_DIRECTORY" value="E:\Coding\Java\CSBFinder\exportToHTML" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="MainFrame.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/MVC/View/MainFrame.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="80" column="33" selection-start-line="79" selection-start-column="33" selection-end-line="80" selection-end-column="33" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GenomePanel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/MVC/View/GenomePanel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-477">
+              <caret line="97" lean-forward="true" selection-start-line="97" selection-end-line="97" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>mult</find>
+      <find>was</find>
+      <find>writer</find>
+      <find>output_path</find>
+      <find>directo</find>
+      <find>non</find>
+      <find>genometo</find>
+      <find>readAndBuildDatasetTree</find>
+      <find>geneList</find>
+      <find>replicon.add</find>
+      <find>x+</find>
+      <find>genomeToGeneListMap = new HashMap&lt;&gt;();</find>
+      <find>char_to_index</find>
+      <find>request</find>
+      <find>utils</find>
+      <find>jcommander</find>
+      <find>number_of_genomes</find>
+      <find>score</find>
+      <find>new Util</find>
+      <find>index_to_char</find>
+      <find>pattern_score</find>
+      <find>q_vals</find>
+      <find>logger</find>
+      <find>genomeToGeneListMap</find>
+      <find>patterns</find>
+      <find>bac</find>
+      <find>color</find>
+      <find>f</find>
+      <find>rowClickedListener</find>
+      <find>new Dime</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>LINE_START</replace>
+      <replace>minInputSequenceLabel</replace>
+      <replace>geneNameComponent</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/main/java/MVC/View/RunEvent.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MVC/View/RunListener.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MVC/View/LoadFileEvent.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MVC/View/CSBFinderView.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MVC/View/LoadFileListener.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MVC/View/GenomeFileChooser.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MVC/Common/GenomesLoadedListener.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MVC/Common/GenomesLoadEvent.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MVC/Common/CSBFinderDoneListener.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MVC/Common/CSBFinderDoneEvent.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MVC/View/GenomeTableModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MVC/View/Listeners/RunListener.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MVC/View/FamilyTopScorePanel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MVC/View/ProgressBar.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MVC/View/Listeners/FamilyRowClickedListener.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MVC/Common/Constants.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MVC/View/CSBSummaryPanel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Main/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MVC/View/Events/SaveOutputEvent.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MVC/View/Listeners/SaveOutputListener.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MVC/View/Toolbar.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MVC/View/CustomListCellRenderer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MVC/View/SummaryTabs.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MVC/View/SummaryPanel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Utils/Gene.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MVC/View/NamePanel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MVC/View/InstancePanel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Main/Pattern.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Main/Writer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MVC/View/Events/FamilyRowClickedEvent.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MVC/View/FamilyTableModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Utils/Pattern.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MVC/View/FamilyPanel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/PostProcess/Family.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Utils/PatternScore.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MVC/View/InputPanel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/IO/Writer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MVC/Common/CSBFinderRequest.java" />
+        <option value="$PROJECT_DIR$/../CSBFinder - Backuo/src/main/java/Utils/Utils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MVC/Controller/CSBFinderController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MVC/Model/CSBFinderModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Utils/Utils.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/MVC/View/Shapes/ShapeParams.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MVC/View/Shapes/DiagLinesShape.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MVC/View/Shapes/Label.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MVC/View/Shapes/ShapesPanel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MVC/View/Shapes/ScrollableShapesPanel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MVC/View/Shapes/MainFrame.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MVC/View/GenomePanel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MVC/View/MainFrame.java" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="CSBFinder" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="CSBFinder" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+      </expand>
+      <select />
+    </treeState>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="1" />
+    <option name="width" value="799" />
+    <option name="height" value="870" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <hideEmptyPackages ProjectPane="false" />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="CSBFinder" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CSBFinder" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CSBFinder" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CSBFinder" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CSBFinder" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CSBFinder" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CSBFinder" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CSBFinder" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CSBFinder" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CSBFinder" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="MVC" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CSBFinder" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CSBFinder" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="MVC" type="462c0819:PsiDirectoryNode" />
+              <item name="View" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CSBFinder" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CSBFinder" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="MVC" type="462c0819:PsiDirectoryNode" />
+              <item name="View" type="462c0819:PsiDirectoryNode" />
+              <item name="Shapes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CSBFinder" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CSBFinder" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="Utils" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://E:/Coding/Java/CSBFinder/src/main/java/Main/Main.java" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Shapes" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.445977" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="MVC.View" />
+      <recent name="MVC.Common" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Coding\Java\CSBFinder\src\main\java\MVC\View\Shapes" />
+      <recent name="E:\Coding\Java\OCBFinder\src\main\java" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Coding\Java\CSBFinder\src\main\java\Utils" />
+      <recent name="E:\Coding\Java\CSBFinder\src\main\java" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.CSBFinderApp">
+    <configuration name="CSBFinderApp" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="MVC.Runnable" />
+      <module name="CSBFinder" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+    </configuration>
+    <configuration name="CSBFinderCLI" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Main.Main" />
+      <module name="CSBFinder" />
+      <option name="PROGRAM_PARAMETERS" value="-in plasmid_genomes.fasta -q 1 -ins 0 -ds plasmids -cog-info cog_info.txt" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <properties />
+      <listeners />
+    </configuration>
+    <list>
+      <item itemvalue="Application.CSBFinderApp" />
+      <item itemvalue="Application.CSBFinderCLI" />
+    </list>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="79028a45-7a81-45d6-b4d1-5e632851696e" name="Default" comment="" />
+      <created>1532528079596</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1532528079596</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1616" height="886" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.499375" weight="0.31909212" />
+      <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.49807197" weight="0.3292011" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info id="Image Layers" order="2" />
+      <window_info anchor="right" id="Capture Analysis" order="3" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50192803" side_tool="true" weight="0.29614326" />
+      <window_info anchor="right" id="Maven Projects" order="3" weight="0.20051414" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49100256" visible="true" weight="0.29614326" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info id="Capture Tool" order="2" />
+      <window_info id="Designer" order="2" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20822622" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="UI Designer" order="2" />
+      <window_info anchor="right" id="Theme Preview" order="3" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49357328" weight="0.5096419" />
+      <window_info anchor="bottom" id="Dependency Viewer" order="7" weight="0.3292011" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Inspection Results" order="8" weight="0.3292011" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49614397" weight="0.3292011" />
+    </layout>
+    <layout-to-restore>
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="bottom" id="Dependency Viewer" order="7" weight="0.3292011" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4993573" visible="true" weight="0.29614326" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.2114396" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3292011" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39944905" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50064266" side_tool="true" weight="0.3292011" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.4993573" weight="0.3292011" />
+      <window_info anchor="right" id="Maven Projects" order="7" weight="0.32969153" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+    </layout-to-restore>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/MVC/Controller/CSBFinderController.java</url>
+          <line>56</line>
+          <properties />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/MVC/Model/CSBFinderModel.java</url>
+          <line>149</line>
+          <properties />
+          <option name="timeStamp" value="49" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/MVC/View/Shapes/MouseAdapterScroller.java</url>
+          <line>28</line>
+          <properties />
+          <option name="timeStamp" value="69" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="70" />
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="pattern.instances.get(0).instanceNode.results" />
+        <watch expression="((InstanceNode)((Edge)((HashMap.Node)pattern.instances.get(0).instanceNode.edges.entrySet().toArray()[0]).getValue()).dest).results" custom="SuffixTrees.Edge,SuffixTrees.InstanceNode,java.util.HashMap.Node" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="evaluateCodeFragment">
+      <expression>
+        <expression-string>cla</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>cla.dataset_name</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>cla.max_insertion</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>utils.getC</expression-string>
+        <language-id>JAVA</language-id>
+        <custom-info>java.util.HashMap.Node,java.util.ArrayList</custom-info>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>utils</expression-string>
+        <language-id>JAVA</language-id>
+        <custom-info>java.util.HashMap.Node,java.util.ArrayList</custom-info>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>//table.getSelectedRow()
+table.getModel().</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>table.getSelectedRow()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>table.get</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>table.getSelectionModel()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+    </expressions>
+    <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>this.table.setVisible(true);</expression-string>
+        <language-id>JAVA</language-id>
+        <custom-info>MVC.View.GenomePanel,javax.swing.JTable</custom-info>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Utils/Directon.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="137">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Utils/Instance.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="150" column="9" selection-start-line="150" selection-start-column="9" selection-end-line="150" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main/Writer.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/IO/Readers.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-320">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/PostProcess/FamilyClustering.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="146">
+          <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Words/Directon.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/MVC/View/Events/FamilyRowClickedEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LICENSE">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-740" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MVC/View/InputPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="97" column="50" selection-start-line="97" selection-start-column="50" selection-end-line="97" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MVC/View/FamilyTableModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="115" column="52" selection-start-line="115" selection-start-column="52" selection-end-line="115" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/PostProcess/Family.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="72" selection-start-line="72" selection-end-line="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MVC/Common/CSBFinderRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="163" selection-start-line="163" selection-end-line="163" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../CSBFinder - Backuo/src/main/java/Utils/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="121" column="48" lean-forward="true" selection-start-line="108" selection-start-column="8" selection-end-line="121" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main/CommandLineArgs.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="472">
+          <caret line="90" column="23" selection-start-line="90" selection-start-column="23" selection-end-line="90" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/beust/jcommander/1.72/jcommander-1.72.jar!/com/beust/jcommander/JCommander.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="137">
+          <caret line="155" column="16" selection-start-line="155" selection-start-column="16" selection-end-line="155" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/IO/Writer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16">
+          <caret line="253" column="99" lean-forward="true" selection-start-line="253" selection-start-column="99" selection-end-line="253" selection-end-column="99" />
+          <folding>
+            <element signature="e#13581#13582#0" expanded="true" />
+            <element signature="e#13631#13632#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MVC/Common/GenomesLoadedListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="3" column="9" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/SuffixTrees/GeneralizedSuffixTree.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="691">
+          <caret line="65" column="11" selection-start-line="65" selection-start-column="11" selection-end-line="65" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/IO/MyLogger.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="560">
+          <caret line="31" column="16" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Utils/PatternScore.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="19" column="19" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main/CSBFinder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3497">
+          <caret line="264" column="39" selection-start-line="264" selection-start-column="39" selection-end-line="264" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/javax/swing/text/JTextComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="292" column="22" selection-start-line="292" selection-start-column="22" selection-end-line="292" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/javax/swing/JTextPane.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="81" column="36" selection-start-line="81" selection-start-column="36" selection-end-line="81" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/javax/swing/JEditorPane.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="82">
+          <caret line="184" column="36" selection-start-line="184" selection-start-column="36" selection-end-line="184" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/javax/swing/JLabel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2640">
+          <folding>
+            <element signature="e#0#56676#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/awt/Font.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="142">
+          <caret line="566" column="27" selection-start-line="566" selection-start-column="23" selection-end-line="566" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MVC/Runnable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="10" column="53" selection-start-line="10" selection-start-column="53" selection-end-line="10" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="180" selection-start-line="180" selection-end-line="180" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MVC/View/Shapes/GeneShape.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="560">
+          <caret line="28" column="41" selection-start-line="28" selection-start-column="41" selection-end-line="28" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MVC/View/Shapes/DiagLinesShape.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="11" column="11" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MVC/View/Shapes/ShapeDimensions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="18" column="11" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MVC/View/Shapes/ShapeParams.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="26" column="27" selection-start-line="26" selection-start-column="27" selection-end-line="26" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MVC/View/Shapes/Label.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="18" column="55" selection-start-line="18" selection-start-column="55" selection-end-line="18" selection-end-column="55" />
+          <folding>
+            <element signature="e#302#303#0" expanded="true" />
+            <element signature="e#367#368#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Utils/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="343" selection-start-line="343" selection-end-line="343" />
+          <folding>
+            <element signature="e#15699#15700#0" expanded="true" />
+            <element signature="e#15739#15740#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MVC/Model/CSBFinderModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="203" selection-start-line="203" selection-end-line="203" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#6420#6421#0" expanded="true" />
+            <element signature="e#6451#6452#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MVC/View/SummaryPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="31" column="23" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MVC/View/SummaryTabs.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="26" column="29" lean-forward="true" selection-start-line="26" selection-start-column="29" selection-end-line="26" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MVC/Controller/CSBFinderController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="49">
+          <caret line="46" selection-start-line="46" selection-end-line="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1371#1372#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MVC/View/FamilyPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="809">
+          <caret line="61" column="31" selection-start-line="61" selection-start-column="13" selection-end-line="61" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MVC/View/CSBSummaryPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MVC/View/Shapes/ShapesPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MVC/View/Shapes/ShapesContainer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="520">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Utils/Pattern.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="113">
+          <caret line="65" column="18" selection-start-line="65" selection-start-column="18" selection-end-line="65" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MVC/View/Shapes/MouseAdapterScroller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="13" column="11" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
+          <folding>
+            <element signature="e#301#302#0" expanded="true" />
+            <element signature="e#335#336#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Utils/InstanceLocation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
+          <folding>
+            <element signature="e#611#612#0" expanded="true" />
+            <element signature="e#643#644#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MVC/View/Shapes/MainFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="27" column="66" selection-start-line="27" selection-start-column="66" selection-end-line="27" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MVC/View/Shapes/ScrollableShapesPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MVC/View/GenomePanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-477">
+          <caret line="97" lean-forward="true" selection-start-line="97" selection-end-line="97" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MVC/View/MainFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="80" column="33" selection-start-line="79" selection-start-column="33" selection-end-line="80" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>CSBFinder:jar</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.445977" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.445977" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.445977" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.445977" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>CSBFinder</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.445977" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: com.beust:jcommander:1.72</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.445977" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

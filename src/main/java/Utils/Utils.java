@@ -1,20 +1,18 @@
 package Utils;
 
-import Words.Directon;
-import Words.Replicon;
-import Words.WordArray;
+import IO.MyLogger;
 import SuffixTrees.*;
 
 import java.io.*;
 import java.util.*;
-import Main.Writer;
+
 
 /**
  * Contain static methods for building suffix trees
  */
 public class Utils {
-    public ArrayList<String> index_to_char;
-    public HashMap<String, Integer> char_to_index;
+    public List<String> index_to_char;
+    public Map<String, Integer> char_to_index;
 
     public static final int WC_CHAR_INDEX = 0;
     public static final String WC_CHAR = "*";
@@ -31,56 +29,36 @@ public class Utils {
     /**
      * accession number to tax key
      */
-    public HashMap<String, Integer> genome_name_to_key;
-    public HashMap<Integer, String> genome_key_to_name;
-    public HashMap<Integer, String> replicon_key_to_name;
+    public Map<String, Integer> genome_name_to_key;
+    public Map<Integer, String> genome_key_to_name;
+    public Map<Integer, String> replicon_key_to_name;
 
     public int dataset_length_sum ;
-
-    public int min_genome_size;
-
-    //public Logger logger = null;
 
     /**
      * for each cog, a set of genomes (bac_index) in which the cog appears
      */
-    public HashMap<String, HashSet<Integer>> cog_to_containing_genomes;
+    public Map<String, Set<Integer>> cog_to_containing_genomes;
 
-    public HashMap<Integer, HashMap<String, Integer>> genome_to_cog_paralog_count;
+    public Map<Integer, Map<String, Integer>> genome_to_cog_paralog_count;
 
     //memoization of computed q_val - it is the same for each pattern length
     public double[] q_val;
 
 
-    public HashMap<String, COG> getCog_info() {
-        return cog_info;
-    }
-
-    public void setCog_info(HashMap<String, COG> cog_info) {
-        this.cog_info = cog_info;
-    }
-
-    public HashMap<String, COG> cog_info;
+    public Map<String, COG> cog_info;
 
     public long initiailMem;
     public long currMem;
 
-    Writer writer = null;
+    private PatternScore pattern_score;
 
-    public Map<String, List<Gene>> getGenomeToGeneListMap() {
-        return genomeToGeneListMap;
-    }
+    private MyLogger logger;
 
-    public void setGenomeToGeneListMap(Map<String, List<Gene>> genomeToGeneListMap) {
-        this.genomeToGeneListMap = genomeToGeneListMap;
-    }
+    Map<String,List<Gene>> genomeToGeneListMap;
 
-    private Map<String, List<Gene>> genomeToGeneListMap;
-
-    public Utils() {}
-
-    public Utils(HashMap<String, COG> cog_info, Writer writer){
-        this.writer = writer;
+    public Utils(Map<String, COG> cog_info, MyLogger logger){
+        this.logger = logger;
 
         index_to_char = new ArrayList<String>();
         char_to_index = new HashMap<String, Integer>();
@@ -93,8 +71,6 @@ public class Utils {
 
         dataset_length_sum = 0;
 
-        min_genome_size = Integer.MAX_VALUE;
-
         cog_to_containing_genomes = new HashMap<>();
 
         genome_to_cog_paralog_count = new HashMap<>();
@@ -103,8 +79,6 @@ public class Utils {
 
         initiailMem = Runtime.getRuntime().totalMemory()-Runtime.getRuntime().freeMemory();
         currMem = initiailMem;
-
-        q_val = new double[200];
 
         //wild card
         char_to_index.put(WC_CHAR, WC_CHAR_INDEX);
@@ -121,7 +95,6 @@ public class Utils {
         char_to_index.put("X+", UNK_CHAR_INDEX);
         char_to_index.put("X-", UNK_CHAR_INDEX);
 
-        genomeToGeneListMap = new HashMap<>();
     }
 
     public void measureMemory(){
@@ -129,13 +102,13 @@ public class Utils {
         if (currMem > this.currMem){
             this.currMem = currMem;
         }
-        System.out.println(currMem-initiailMem);
+        //System.out.println(currMem-initiailMem);
     }
 
     private void countParalogsInSeqs(String[] directon, int curr_seq_index){
         for (String gene : directon) {
 
-            HashMap<String, Integer> curr_genome_paralogs_count = genome_to_cog_paralog_count.get(curr_seq_index);
+            Map<String, Integer> curr_genome_paralogs_count = genome_to_cog_paralog_count.get(curr_seq_index);
             if (curr_genome_paralogs_count == null) {
                 curr_genome_paralogs_count = new HashMap<>();
                 genome_to_cog_paralog_count.put(curr_seq_index, curr_genome_paralogs_count);
@@ -147,7 +120,7 @@ public class Utils {
             }
             curr_genome_paralogs_count.put(gene, curr_cog_paralog_count);
 
-            HashSet<Integer> genomes = cog_to_containing_genomes.get(gene);
+            Set<Integer> genomes = cog_to_containing_genomes.get(gene);
             if (genomes == null) {
                 genomes = new HashSet<>();
                 cog_to_containing_genomes.put(gene, genomes);
@@ -157,9 +130,9 @@ public class Utils {
     }
 
 
-    private static ArrayList<Directon> splitRepliconToDirectons(Replicon replicon) {
+    private static List<Directon> splitRepliconToDirectons(Replicon replicon) {
 
-        ArrayList<Directon> directons = new ArrayList<>();
+        List<Directon> directons = new ArrayList<>();
 
         Directon directon = new Directon();
 
@@ -220,32 +193,25 @@ public class Utils {
     private void putWordInDataTree(Replicon replicon, GeneralizedSuffixTree dataset_gst, int curr_genome_index){
         String[] genes = replicon.getGenesIDs();
         WordArray cog_word = createWordArray(genes);
-        dataset_gst.put(cog_word, curr_genome_index, Replicon.index, replicon.getStartIndex(), replicon.getStrand());
+        InstanceLocation instance_info = new InstanceLocation(Replicon.index, replicon.getStartIndex(), replicon.getStrand());
+        dataset_gst.put(cog_word, curr_genome_index, instance_info);
 
         countParalogsInSeqs(genes, curr_genome_index);
     }
 
     /**
      * Insert replicon, or split the replicon to directons and then insert
-     * @param is_directons
+     * @param non_directons
      * @param replicon
      * @param dataset_gst
      * @param curr_genome_index
      * @return
      */
-    private int updateDataTree(boolean is_directons, Replicon replicon, GeneralizedSuffixTree dataset_gst,
+    private int updateDataTree(boolean non_directons, Replicon replicon, GeneralizedSuffixTree dataset_gst,
                                 int curr_genome_index){
 
         int replicon_length = 0;
-        if (is_directons) {
-            ArrayList<Directon> directons = splitRepliconToDirectons(replicon);
-
-            for (Directon directon: directons){
-                replicon_length += directon.size();
-                putWordInDataTree(directon, dataset_gst, curr_genome_index);
-            }
-
-        }else{
+        if (non_directons) {
 
             putWordInDataTree(replicon, dataset_gst, curr_genome_index);
 
@@ -254,6 +220,16 @@ public class Utils {
             putWordInDataTree(replicon, dataset_gst, curr_genome_index);
 
             replicon_length += replicon.size() * 2;
+
+        }else{
+
+            List<Directon> directons = splitRepliconToDirectons(replicon);
+
+            for (Directon directon: directons){
+                replicon_length += directon.size();
+                putWordInDataTree(directon, dataset_gst, curr_genome_index);
+            }
+
         }
         return replicon_length;
     }
@@ -265,10 +241,13 @@ public class Utils {
      * @return number of input sequences that contains at least one valid direction
      */
     public int readAndBuildDatasetTree(String input_file_path, GeneralizedSuffixTree dataset_gst,
-                                       boolean is_directons) {
+                                       boolean non_directons) {
+        genomeToGeneListMap = new HashMap<>();
+
         String file_name = input_file_path;
 
         BufferedReader br = null;
+        int max_genomes_size = 0;
         try {
             br = new BufferedReader(new FileReader(file_name));
 
@@ -289,7 +268,7 @@ public class Utils {
 
                         if (curr_genome_index != -1) {
 
-                            int replicon_length = updateDataTree(is_directons, replicon, dataset_gst, curr_genome_index);
+                            int replicon_length = updateDataTree(non_directons, replicon, dataset_gst, curr_genome_index);
 
                             length_sum += replicon_length;
                             genome_size += replicon_length;
@@ -308,6 +287,9 @@ public class Utils {
 
                             if (!next_genome_name.equals(curr_genome_name)) {
                                 curr_genome_index++;
+                                if (genome_size > max_genomes_size){
+                                    max_genomes_size = genome_size;
+                                }
                                 genome_size = 0;
                             }
 
@@ -339,28 +321,36 @@ public class Utils {
                     line = br.readLine();
                 }
 
-                int replicon_length = updateDataTree(is_directons, replicon, dataset_gst, curr_genome_index);
+                int replicon_length = updateDataTree(non_directons, replicon, dataset_gst, curr_genome_index);
                 length_sum += replicon_length;
                 genome_size += replicon_length;
 
                 updateGenomes(curr_genome_name, genome_size, curr_genome_index);
 
+                if (genome_size > max_genomes_size){
+                    max_genomes_size = genome_size;
+                }
+
                 dataset_length_sum = length_sum;
-
-
-                System.out.println("Average genome size: " + length_sum / genome_key_to_name.size());
-                System.out.println("Number of genomes " + genome_key_to_name.size());
-                System.out.println("Number of cogs " + char_to_index.size());
 
                 number_of_genomes = genome_key_to_name.size();
                 if (number_of_genomes == 0){
                     return -1;
+                }else{
+                    pattern_score = new PatternScore(max_genomes_size, number_of_genomes, dataset_length_sum,
+                            cog_to_containing_genomes, genome_to_cog_paralog_count);
                 }
+
+                logger.writeLogger("Average genome size: " + length_sum / genome_key_to_name.size());
+                logger.writeLogger("Number of genomes " + genome_key_to_name.size());
+                logger.writeLogger("Number of cogs " + char_to_index.size());
 
             } catch (IOException e) {
                 System.out.println("An exception occured while reading " + file_name);
                 return -1;
-            } finally {
+            } catch (Exception e) {
+                System.err.println(e.getMessage());
+            }finally {
                 try {
                     br.close();
                 } catch (IOException e) {
@@ -453,32 +443,21 @@ public class Utils {
     public double computePatternScore(String[] pattern_chars, int max_insertions, int max_error, int max_deletions,
                                       int pattern_occs_keys_size){
 
-        int avg_genome_size = 1;
-        if (number_of_genomes > 0 ) {
-            avg_genome_size = dataset_length_sum / number_of_genomes;
+        if (pattern_score != null){
+            return pattern_score.computePatternScore(pattern_chars, max_insertions, pattern_occs_keys_size);
         }
+        return -1;
+    }
 
-        HashSet<Integer> intersection_of_genomes_with_pattern_chars = new HashSet<>(cog_to_containing_genomes.get(pattern_chars[0]));
-        for (int i = 1; i < pattern_chars.length; i++) {
-            intersection_of_genomes_with_pattern_chars.retainAll(cog_to_containing_genomes.get(pattern_chars[i]));
-        }
+    public Map<String,List<Gene>> getGenomeToGeneListMap() {
+        return this.genomeToGeneListMap;
+    }
 
-        int paralog_count_product_sum = 0;
-        int paralog_count_product;
-        for (int seq_key: intersection_of_genomes_with_pattern_chars) {
+    public void setCogInfo(Map<String, COG> cog_info) {
+        this.cog_info = cog_info;
+    }
 
-            HashMap<String, Integer> curr_seq_paralog_count = genome_to_cog_paralog_count.get(seq_key);
-            paralog_count_product = 1;
-            for (String cog : pattern_chars) {
-                int curr_cog_paralog_count = curr_seq_paralog_count.get(cog);
-                paralog_count_product *= curr_cog_paralog_count;
-            }
-            paralog_count_product_sum += paralog_count_product;
-        }
-
-        int average_paralog_count = paralog_count_product_sum/intersection_of_genomes_with_pattern_chars.size();
-
-        return Formulas.pval_cross_genome(avg_genome_size/*min_genome_size*/, pattern_chars.length, max_insertions,
-                average_paralog_count, number_of_genomes, pattern_occs_keys_size, q_val);
+    public Map<String, COG> getCogInfo() {
+        return this.cog_info;
     }
 }

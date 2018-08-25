@@ -1,7 +1,6 @@
 package MVC.View;
 
 import MVC.Common.CSBFinderRequest;
-import MVC.Common.Constants;
 import MVC.Controller.CSBFinderController;
 import MVC.View.Events.FamilyRowClickedEvent;
 import MVC.View.Events.LoadFileEvent;
@@ -12,9 +11,8 @@ import MVC.View.Listeners.LoadFileListener;
 import MVC.View.Listeners.RunListener;
 import MVC.View.Listeners.SaveOutputListener;
 import Main.CommandLineArgs;
-import Main.Pattern;
+import Utils.Pattern;
 import PostProcess.Family;
-import Utils.Gene;
 
 import javax.swing.*;
 import java.awt.*;
@@ -57,7 +55,6 @@ public class MainFrame extends JFrame {
         toolbar = new Toolbar();
         inputs = new InputPanel();
         genomes = new GenomePanel();
-        genomes.setBackground(new Color(200, 250, 20));
         summaryPanel = new SummaryPanel();
 
         setEventListeners();
@@ -80,8 +77,8 @@ public class MainFrame extends JFrame {
             public void runEventOccurred(RunEvent e) {
                 CSBFinderRequest request = e.getRequest();
 
-                request.setQuorumWithoutInsertions(5);
-                request.setGeneInfoFilePath("E:\\Coding\\Java\\CSBFinder\\input\\cog_info.txt");
+//                request.setQuorumWithoutInsertions(5);
+//                request.setGeneInfoFilePath("E:\\Coding\\Java\\CSBFinder\\input\\cog_info.txt");
 
                 SwingUtilities.invokeLater(new Runnable() {
                     @Override
@@ -109,6 +106,11 @@ public class MainFrame extends JFrame {
     }
 
     private void setToolbarListener() {
+        setLoadButtonListener();
+        setSaveButtonListener();
+    }
+
+    private void setLoadButtonListener() {
         toolbar.setLoadListener(new LoadFileListener() {
 
             @Override
@@ -117,16 +119,6 @@ public class MainFrame extends JFrame {
                 File f = e.getFilePath();
                 if (f.exists() && !f.isDirectory()) {
                     // open option dialog for user to choose if he wants to run with directon option
-//                    JOptionPane option = new JOptionPane();
-//                    String[] ops = new String[] {"Yes", "No"};
-//                    boolean isDirecton = option.showOptionDialog(
-//                            MainFrame.this,
-//                            "Run using directons",
-//                            "Run", JOptionPane.YES_NO_CANCEL_OPTION,
-//                            JOptionPane.QUESTION_MESSAGE,
-//                            null,
-//                            ops,
-//                            true) == JOptionPane.YES_OPTION;
                     boolean isDirecton = true;
 
                     SwingUtilities.invokeLater(new Runnable() {
@@ -147,14 +139,20 @@ public class MainFrame extends JFrame {
                         @Override
                         protected void done() {
                             progressBar.done("File Loaded Successfully");
-                            inputs.setVisible(true);
+                            if (controller.getGenomesLoaded() == -1) {
+                                JOptionPane.showMessageDialog(MainFrame.this, "An error occurred while loading file");
+                            } else {
+                                inputs.setVisible(true);
+                            }
                         }
                     };
                     swingWorker.execute();
                 }
             }
         });
+    }
 
+    private void setSaveButtonListener() {
         toolbar.setSaveOutputListener(new SaveOutputListener() {
             @Override
             public void saveOutputOccurred(SaveOutputEvent e) {
@@ -201,6 +199,10 @@ public class MainFrame extends JFrame {
         });
     }
 
+//    public void displayInputPanel(int numOfGenomesLoaded) {
+//
+//    }
+
     private void setFamilyRowClickedListener() {
         summaryPanel.setFamilyRowClickedListener(new FamilyRowClickedListener() {
             @Override
@@ -208,7 +210,7 @@ public class MainFrame extends JFrame {
                 Pattern p = e.getPattern();
                 Map<String, String> cogInfo = controller.getCogInfo(Arrays.asList(p.getPatternArr()));
                 summaryPanel.setCogInfo(cogInfo);
-                genomes.displayInstances(controller.getInstances(p));
+                genomes.displayInstances(p.getPattern(), controller.getInstances(p));
             }
         });
     }
